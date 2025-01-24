@@ -1,15 +1,14 @@
-let choices = ["Rock", "Paper", "Scissors"];
-let computerChoiceIndex = Math.floor(Math.random() * 3);
-// let playerChoice = choices[playerChoiceIndex];
-let computerChoice = choices[computerChoiceIndex];
+
+const choices = ["rock", "paper", "scissors"];
+let playerChoice = choices[Math.floor(Math.random() * choices.length)];
+let computerChoice = choices[Math.floor(Math.random() * choices.length)];
 let resultMessage;
-function game(playerChoice){
 if (playerChoice === computerChoice) {
   resultMessage = "It's a tie!";
 } else if (
-  (playerChoice === "Rock" && computerChoice === "Scissors") ||
-  (playerChoice === "Paper" && computerChoice === "Rock") ||
-  (playerChoice === "Scissors" && computerChoice === "Paper")
+  (playerChoice === "rock" && computerChoice === "scissors") ||
+  (playerChoice === "paper" && computerChoice === "rock") ||
+  (playerChoice === "scissors" && computerChoice === "paper")
 ) {
   resultMessage = "You win!";
 } else {
@@ -17,4 +16,4 @@ if (playerChoice === computerChoice) {
 }
 console.log(`Player chose: ${playerChoice}`);
 console.log(`Computer chose: ${computerChoice}`);
-console.log(resultMessage);}
+console.log(resultMessage);

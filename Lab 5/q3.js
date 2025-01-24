@@ -1,3 +1,4 @@
+
 const outputOne = () => console.log("One");
 const outputTwo = () => console.log("Two");
 
@@ -11,7 +12,8 @@ const outputFour = () => {
   console.log("Four");
   setTimeout(() => {
     outputThree();
-  }, 0);  
+  }, 0);
 };
 
+// Call the fourth function
 outputFour();
