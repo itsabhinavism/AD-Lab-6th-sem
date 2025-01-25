@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Font Changer</title>
+    <link rel="stylesheet" href="q3_styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dynamic Font Changer</h1>
+        <label for="fontSelect">Select a font style:</label>
+        <select id="fontSelect" onchange="changeFont()">
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Georgia">Georgia</option>
+        </select>
+        <p id="dynamicText">This is a sample text that will change fonts dynamically based on your selection.</p>
+    </div>
+    <script src="q3_script.js"></script>
+</body>
+</html>
