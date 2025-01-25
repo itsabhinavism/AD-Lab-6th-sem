@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz</title>
+    <link rel="stylesheet" href="q10_styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Simple Quiz</h1>
+        <form id="quizForm" onsubmit="return calculateScore()">
+            <div class="question">
+                <p>1. What is the capital of France?</p>
+                <input type="radio" id="q1a1" name="q1" value="a">
+                <label for="q1a1">Paris</label><br>
+                <input type="radio" id="q1a2" name="q1" value="b">
+                <label for="q1a2">London</label><br>
+                <input type="radio" id="q1a3" name="q1" value="c">
+                <label for="q1a3">Berlin</label><br>
+                <input type="radio" id="q1a4" name="q1" value="d">
+                <label for="q1a4">Madrid</label>
+            </div>
+            <div class="question">
+                <p>2. What is 2 + 2?</p>
+                <input type="radio" id="q2a1" name="q2" value="a">
+                <label for="q2a1">3</label><br>
+                <input type="radio" id="q2a2" name="q2" value="b">
+                <label for="q2a2">4</label><br>
+                <input type="radio" id="q2a3" name="q2" value="c">
+                <label for="q2a3">5</label><br>
+                <input type="radio" id="q2a4" name="q2" value="d">
+                <label for="q2a4">6</label>
+            </div>
+            <div class="question">
+                <p>3. What is the largest planet in our solar system?</p>
+                <input type="radio" id="q3a1" name="q3" value="a">
+                <label for="q3a1">Earth</label><br>
+                <input type="radio" id="q3a2" name="q3" value="b">
+                <label for="q3a2">Mars</label><br>
+                <input type="radio" id="q3a3" name="q3" value="c">
+                <label for="q3a3">Jupiter</label><br>
+                <input type="radio" id="q3a4" name="q3" value="d">
+                <label for="q3a4">Saturn</label>
+            </div>
+            <button type="submit">Submit Quiz</button>
+        </form>
+        <p id="score"></p>
+    </div>
+    <script src="q10_script.js"></script>
+</body>
+</html>
