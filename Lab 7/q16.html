@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert String Case</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        input[type="text"], select {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="userInput" placeholder="Enter a string">
+        <select id="caseSelection">
+            <option value="uppercase">Convert to Uppercase</option>
+            <option value="lowercase">Convert to Lowercase</option>
+        </select>
+        <button id="convertButton">Convert</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('convertButton').addEventListener('click', function() {
+            var userInput = document.getElementById('userInput').value;
+            var caseSelection = document.getElementById('caseSelection').value;
+            var resultDiv = document.getElementById('result');
+
+            if (userInput === '') {
+                resultDiv.textContent = 'Please enter a string.';
+                return;
+            }
+
+            if (caseSelection === 'uppercase') {
+                resultDiv.textContent = userInput.toUpperCase();
+            } else if (caseSelection === 'lowercase') {
+                resultDiv.textContent = userInput.toLowerCase();
+            }
+        });
+    </script>
