@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+    <style>
+        .bar {
+            display: inline-block;
+            width: 20px;
+            margin-right: 5px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="numbersInput" placeholder="Enter numbers separated by commas">
+    <button id="generateChartButton">Generate Chart</button>
+    <div id="chartContainer"></div>
+
+    <script>
+        document.getElementById('generateChartButton').addEventListener('click', function() {
+            const numbers = document.getElementById('numbersInput').value.split(',').map(Number);
+            const chartContainer = document.getElementById('chartContainer');
+            chartContainer.innerHTML = '';
+            numbers.forEach(number => {
+                const bar = document.createElement('div');
+                bar.className = 'bar';
+                bar.style.height = number * 10 + 'px';
+                chartContainer.appendChild(bar);
+            });
+        });
+    </script>
+</body>
+</html>

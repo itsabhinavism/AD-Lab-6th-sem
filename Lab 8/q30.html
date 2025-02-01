@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Synchronization</title>
+</head>
+<body>
+    <textarea id="textArea1"></textarea>
+    <textarea id="textArea2"></textarea>
+
+    <script>
+        const textArea1 = document.getElementById('textArea1');
+        const textArea2 = document.getElementById('textArea2');
+
+        textArea1.addEventListener('input', function() {
+            textArea2.value = textArea1.value;
+        });
+
+        textArea2.addEventListener('input', function() {
+            textArea1.value = textArea2.value;
+        });
+    </script>
+</body>
+</html>

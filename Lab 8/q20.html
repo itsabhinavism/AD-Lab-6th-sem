@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <style>
+        .expense-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="expenseInput" placeholder="Enter expense">
+    <input type="number" id="amountInput" placeholder="Enter amount">
+    <button id="addExpenseButton">Add Expense</button>
+    <div id="expenseList"></div>
+
+    <script>
+        document.getElementById('addExpenseButton').addEventListener('click', function() {
+            const expense = document.getElementById('expenseInput').value;
+            const amount = document.getElementById('amountInput').value;
+            const expenseList = document.getElementById('expenseList');
+            const expenseItem = document.createElement('div');
+            expenseItem.className = 'expense-item';
+            expenseItem.textContent = `${expense}: $${amount}`;
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            removeButton.addEventListener('click', function() {
+                expenseList.removeChild(expenseItem);
+            });
+            expenseItem.appendChild(removeButton);
+            expenseList.appendChild(expenseItem);
+        });
+    </script>
+</body>
+</html>

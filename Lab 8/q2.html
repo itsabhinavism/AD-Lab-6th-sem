@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+</head>
+<body>
+    <input type="text" id="tableInput" placeholder="Enter table data">
+    <button id="updateTableButton">Update Table</button>
+    <table id="dynamicTable">
+        <thead>
+            <tr><th>Data</th></tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        document.getElementById('updateTableButton').addEventListener('click', function() {
+            const inputValue = document.getElementById('tableInput').value;
+            const tableBody = document.querySelector('#dynamicTable tbody');
+            const newRow = document.createElement('tr');
+            const newCell = document.createElement('td');
+            newCell.textContent = inputValue;
+            newRow.appendChild(newCell);
+            tableBody.appendChild(newRow);
+        });
+    </script>
+</body>
+</html>

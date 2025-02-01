@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paginated Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .pagination {
+            margin-top: 10px;
+        }
+        .pagination button {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <table id="paginatedTable">
+        <thead>
+            <tr><th>Data</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Item 1</td></tr>
+            <tr><td>Item 2</td></tr>
+            <tr><td>Item 3</td></tr>
+            <tr><td>Item 4</td></tr>
+            <tr><td>Item 5</td></tr>
+            <tr><td>Item 6</td></tr>
+        </tbody>
+    </table>
+    <div class="pagination">
+        <button id="prevButton">Previous</button>
+        <button id="nextButton">Next</button>
+    </div>
+
+    <script>
+        const table = document.getElementById('paginatedTable');
+        const rows = table.querySelectorAll('tbody tr');
+        const rowsPerPage = 2;
+        let currentPage = 0;
+
+        function showPage(page) {
+            rows.forEach((row, index) => {
+                row.style.display = index >= page * rowsPerPage && index < (page + 1) * rowsPerPage ? '' : 'none';
+            });
+        }
+
+        document.getElementById('prevButton').addEventListener('click', function() {
+            if (currentPage > 0) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        });
+
+        document.getElementById('nextButton').addEventListener('click', function() {
+            if (currentPage < Math.ceil(rows.length / rowsPerPage) - 1) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        });
+
+        showPage(currentPage);
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Structure</title>
+    <style>
+        .tree-node {
+            margin-left: 20px;
+            display: none;
+        }
+        .tree-node.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tree">
+        <div class="tree-item">
+            <span class="tree-toggle">+</span> Root
+            <div class="tree-node">
+                <div class="tree-item">
+                    <span class="tree-toggle">+</span> Child 1
+                    <div class="tree-node">
+                        <div class="tree-item">Grandchild 1</div>
+                        <div class="tree-item">Grandchild 2</div>
+                    </div>
+                </div>
+                <div class="tree-item">Child 2</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.tree-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const node = this.nextElementSibling;
+                node.classList.toggle('active');
+                this.textContent = node.classList.contains('active') ? '-' : '+';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Section</title>
+    <style>
+        .faq-item {
+            margin-bottom: 10px;
+        }
+        .faq-question {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="faq-item">
+        <div class="faq-question">What is HTML?</div>
+        <div class="faq-answer">HTML stands for HyperText Markup Language.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">What is CSS?</div>
+        <div class="faq-answer">CSS stands for Cascading Style Sheets.</div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

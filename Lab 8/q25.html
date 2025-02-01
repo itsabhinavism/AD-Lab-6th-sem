@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Items</title>
+    <style>
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <select id="categoryDropdown">
+        <option value="">Select Category</option>
+        <option value="fruits">Fruits</option>
+        <option value="vegetables">Vegetables</option>
+    </select>
+    <div id="itemList">
+        <div class="item" data-category="fruits">Apple</div>
+        <div class="item" data-category="fruits">Banana</div>
+        <div class="item" data-category="vegetables">Carrot</div>
+        <div class="item" data-category="vegetables">Broccoli</div>
+    </div>
+
+    <script>
+        document.getElementById('categoryDropdown').addEventListener('change', function() {
+            const selectedCategory = this.value;
+            document.querySelectorAll('.item').forEach(item => {
+                if (selectedCategory === '' || item.getAttribute('data-category') === selectedCategory) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        .cart-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="itemInput" placeholder="Enter item name">
+    <button id="addItemButton">Add Item</button>
+    <div id="cartContainer"></div>
+
+    <script>
+        document.getElementById('addItemButton').addEventListener('click', function() {
+            const itemName = document.getElementById('itemInput').value;
+            const cartContainer = document.getElementById('cartContainer');
+            const cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.textContent = itemName;
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            removeButton.addEventListener('click', function() {
+                cartContainer.removeChild(cartItem);
+            });
+            cartItem.appendChild(removeButton);
+            cartContainer.appendChild(cartItem);
+        });
+    </script>
+</body>
+</html>

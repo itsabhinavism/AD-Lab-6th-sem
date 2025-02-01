@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Image Description</title>
+    <style>
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+        .image-description {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="image.jpg" alt="Image">
+        <div class="image-description">This is a description</div>
+    </div>
+
+    <script>
+        document.querySelector('.image-container').addEventListener('mouseover', function() {
+            this.querySelector('.image-description').style.display = 'block';
+        });
+
+        document.querySelector('.image-container').addEventListener('mouseout', function() {
+            this.querySelector('.image-description').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        #imageGallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #imageGallery img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .navigation {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .navigation button {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="imageGallery">
+        <img src="image1.jpg" alt="Image 1">
+    </div>
+    <div class="navigation">
+        <button id="prevImageButton">Previous</button>
+        <button id="nextImageButton">Next</button>
+    </div>
+
+    <script>
+        const images = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
+        let currentIndex = 0;
+
+        function showImage(index) {
+            document.querySelector('#imageGallery img').src = images[index];
+        }
+
+        document.getElementById('prevImageButton').addEventListener('click', function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                showImage(currentIndex);
+            }
+        });
+
+        document.getElementById('nextImageButton').addEventListener('click', function() {
+            if (currentIndex < images.length - 1) {
+                currentIndex++;
+                showImage(currentIndex);
+            }
+        });
+
+        showImage(currentIndex);
+    </script>
+</body>
+</html>

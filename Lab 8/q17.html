@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <style>
+        .list {
+            border: 1px solid #ddd;
+            padding: 10px;
+            min-height: 100px;
+        }
+        .item {
+            padding: 5px;
+            margin: 5px;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="list" id="list1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="item" draggable="true" ondragstart="drag(event)">Item 1</div>
+        <div class="item" draggable="true" ondragstart="drag(event)">Item 2</div>
+    </div>
+    <div class="list" id="list2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            const data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Search Bar</title>
+    <style>
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="searchInput" placeholder="Search...">
+    <div id="itemList">
+        <div class="item">Apple</div>
+        <div class="item">Banana</div>
+        <div class="item">Cherry</div>
+        <div class="item">Date</div>
+    </div>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            document.querySelectorAll('.item').forEach(item => {
+                if (item.textContent.toLowerCase().includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

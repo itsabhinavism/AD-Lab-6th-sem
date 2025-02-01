@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate Element</title>
+    <style>
+        #square {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <button id="animateButton">Animate</button>
+    <div id="square"></div>
+
+    <script>
+        document.getElementById('animateButton').addEventListener('click', function() {
+            const square = document.getElementById('square');
+            let pos = 0;
+            const id = setInterval(frame, 5);
+            function frame() {
+                if (pos == 350) {
+                    clearInterval(id);
+                } else {
+                    pos++;
+                    square.style.left = pos + 'px';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
