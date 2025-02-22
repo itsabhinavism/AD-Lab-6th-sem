@@ -1,37 +1,35 @@
-document.addEventListener('DOMContentLoaded', () => {
+// Initial list of people
+const people = [
+    { name: 'Alice', count: 0 },
+    { name: 'Bob', count: 0 },
+    { name: 'Charlie', count: 0 }
+];
+
+// Function to render the list
+function renderList() {
     const peopleList = document.getElementById('peopleList');
-    const people = {};
-
-    function addPerson(name) {
-        if (!name) return;
-        if (!people[name]) {
-            people[name] = 0;
-        }
-        updateList();
-    }
-
-    function updateList() {
-        peopleList.innerHTML = '';
-        for (const name in people) {
-            const li = document.createElement('li');
-            li.textContent = `${name} - Clicked ${people[name]} times`;
-            li.addEventListener('click', () => {
-                people[name]++;
-                updateList();
-            });
-            peopleList.appendChild(li);
-        }
-    }
-
-    document.getElementById('newPerson').addEventListener('keyup', (event) => {
-        if (event.key === 'Enter') {
-            const name = event.target.value.trim();
-            if (name) {
-                addPerson(name);
-                event.target.value = '';
-            }
-        }
+    peopleList.innerHTML = '';
+    people.forEach((person, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${person.name} - Clicked ${person.count} times`;
+        listItem.addEventListener('click', () => {
+            person.count++;
+            renderList();
+        });
+        peopleList.appendChild(listItem);
     });
+}
 
-    window.addPerson = addPerson;
-});
+// Function to add a new user
+function addUser() {
+    const newUserInput = document.getElementById('newUser');
+    const newUserName = newUserInput.value.trim();
+    if (newUserName) {
+        people.push({ name: newUserName, count: 0 });
+        newUserInput.value = '';
+        renderList();
+    }
+}
+
+// Initial render
+renderList();
