@@ -19,7 +19,7 @@
         document.getElementById('addItemButton').addEventListener('click', function() {
             const itemName = document.getElementById('itemInput').value;
             const cartContainer = document.getElementById('cartContainer');
-            const cartItem = document.createElement('div');
+            const cartItem = document.createElement('div');  
             cartItem.className = 'cart-item';
             cartItem.textContent = itemName;
             const removeButton = document.createElement('button');
