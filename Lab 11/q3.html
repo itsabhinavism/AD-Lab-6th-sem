@@ -1,0 +1,13 @@
+<%@ page import="java.util.Date" %>
+<html>
+<head>
+    <title>Date Header</title>
+</head>
+<body>
+    <% 
+        response.setHeader("Current-Date", new Date().toString());
+    %>
+    <h1>Date Header Example</h1>
+    <p>Current Date: <%= new Date() %></p>
+</body>
+</html>

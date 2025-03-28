@@ -1,0 +1,12 @@
+<%@ page import="java.util.Date" %>
+<html>
+<head>
+    <title>Session Details</title>
+</head>
+<body>
+    <h1>Session Information</h1>
+    <p>Session ID: <%= session.getId() %></p>
+    <p>Creation Time: <%= new Date(session.getCreationTime()) %></p>
+    <p>Last Accessed Time: <%= new Date(session.getLastAccessedTime()) %></p>
+</body>
+</html>
